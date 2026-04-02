@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="admin-profile">
+                <img id="irloh" src="https://cdn.grapesjs.com/workspaces/cmmmz66tdadpf12v11ryb41ue/assets/78fc94af-41d8-48c3-989b-ec30f5edadb1__665668e3883d43cd52b61816slidebean-pitch-deck-template-uber.webp" class="uber-branding" alt="Uber Branding">
+                <div class="user-info">
+                 <img src="https://cdn.grapesjs.com/workspaces/cmmmz66tdadpf12v11ryb41ue/assets/2f26a05d-05e1-4dc0-a6da-983a9436ff28__logo.PNG" class="profile-img" alt="Uber Logo">
+                    <h1>UBER <span></span></h1>
+                    <p>Charurooba</p>   
+                </div>
+            </div>
+        </header>
+
+        <section class="form-section">
+            <h3>Register Travel Detail</h3>
+            <form action="/add" method="POST" id="mainForm">
+                <input type="text" name="name" id="form-name" placeholder="User Name" required>
+                <input type="text" name="mobile" id="form-mobile" placeholder="Mobile Number" required>
+                <input type="number" name="amount" id="form-amount" placeholder="Travel Fare" required>
+                <input type="text" name="location" id="form-location" placeholder="User Location" required>
+                
+                <div class="btn-group">
+                    <button type="submit" class="btn add-btn">Add Record</button>
+                    <button type="submit" formaction="/update" class="btn update-btn">Update Existing</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                        <th>Fare</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in customers %}
+                    <tr>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.mobile }}</td>
+                        <td>₹{{ user.amount }}</td>
+                        <td>{{ user.location }}</td>
+                        <td class="action-buttons">
+                            <button type="button" class="action-btn edit-btn" 
+                                    onclick="fillForm('{{user.name}}', '{{user.mobile}}', '{{user.amount}}', '{{user.location}}')">
+                                Edit
+                            </button>
+                            <a href="/delete/{{ user.name }}" class="action-btn delete-btn" onclick="return confirm('Are you sure?')">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script>
+        function fillForm(name, mobile, amount, location) {
+            document.getElementById('form-name').value = name;
+            document.getElementById('form-mobile').value = mobile;
+            document.getElementById('form-amount').value = amount;
+            document.getElementById('form-location').value = location;
+            window.scrollTo(0, 0); // Scroll up to the form
+        }
+    </script>
+</body>
+</html>

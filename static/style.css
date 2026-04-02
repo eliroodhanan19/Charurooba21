@@ -1,0 +1,113 @@
+/* Base Layout */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    /* Your new background image code */
+    background-image: url("https://cdn.grapesjs.com/workspaces/cmmmz66tdadpf12v11ryb41ue/assets/ba559f8f-ba35-4cf0-a14a-eca735691df4__stylish-nighttime-drive-stockcake.webp");
+    background-position: 0px 0px;
+    background-size: cover;      /* Ensures image covers the full screen */
+    background-attachment: fixed; /* Keeps background still when you scroll */
+    background-repeat: no-repeat;
+}
+
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(92, 101, 223, 0.541);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Header & Profile Styles */
+.admin-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #8067ee6e;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.uber-branding { width: 150px; height: auto; }
+
+.user-info { display: flex; align-items: center; gap: 10px; }
+
+.profile-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #000;
+}
+
+/* Form Styles */
+input {
+    width: 96%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn-group { display: flex; gap: 10px; margin-top: 10px; }
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    color: rgba(219, 132, 132, 0.452);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-btn { background-color: #000; }
+.update-btn { background-color: #2980b9; }
+
+/* Table and Adjacent Buttons Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Flexbox to keep buttons adjacent */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    padding: 6px 12px;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+}
+
+.edit-btn {
+    background-color: #f39c12;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.action-btn:hover {
+    opacity: 0.8;
+}
